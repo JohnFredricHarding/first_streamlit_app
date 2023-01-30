@@ -25,4 +25,7 @@ streamlit.dataframe(fruits_to_show)
 streamlit.header("Fruityvice Fruit Advice!")
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+#Next row just lists the information from the respons as one long string
 streamlit.text(fruityvice_response.json())
+# Normalizes the data to show in columns and rows (below)? 
+fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
